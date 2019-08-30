@@ -1,2 +1,2 @@
 # SQLBAK
-sqlbak week today
+Remote backup of cloud server database, daily backup on a weekly cycle.
