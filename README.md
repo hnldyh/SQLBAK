@@ -3,7 +3,11 @@ Remote backup of cloud server database, daily backup on a weekly cycle.
 
 2019.08.30修改 
 
+         按周每天备份.bat 
+         
          云服务器数据库异地备份，按周循环每天备份。备份日志写入程序下级目录LOG中，并按日期每天分开。
+         
+         实时同步.bat 
          
          实时同步云服务器的一个目录和异地备份服务器备份。按每分钟检查一次，如有变动进行同步。
 
