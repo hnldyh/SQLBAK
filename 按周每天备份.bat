@@ -1,42 +1,42 @@
-echo ÉèÖÃÒª±¸·ÝµÄÊý¾Ý¿âÎÄ¼þ¼Ð... 	   
+echo è®¾ç½®è¦å¤‡ä»½çš„æ•°æ®åº“æ–‡ä»¶å¤¹... 	   
 set "pbuf=D:\MSSQL\Backup" 		 	 	 	
 set "pbuf1=d:\WEAVER"	 	
 set "pbuf2=d:\WWWROOT"	 	   
-echo ÉèÖÃ±¾µØ±¸·ÝÎÄ¼þ´æ·ÅÎÄ¼þ¼Ð...  	
+echo è®¾ç½®æœ¬åœ°å¤‡ä»½æ–‡ä»¶å­˜æ”¾æ–‡ä»¶å¤¹...  	
 set "mbuf=d:\BAK"  		 	    
-echo ÉèÖÃÔ¶³Ì±¸·Ý·þÎñÆ÷¹²ÏíÎÄ¼þ¼Ð	 
+echo è®¾ç½®è¿œç¨‹å¤‡ä»½æœåŠ¡å™¨å…±äº«æ–‡ä»¶å¤¹	 
 set "tbuf=\\192.168.1.2\BAK"  	
-echo ÉèÖÃ±¸·ÝÎÄ¼þÃû(ÒÔÐÇÆÚ¼¸ÃüÃû£¬¼´±¸·ÝÎÄ¼þÖ»±£´æ×î½üÒ»ÖÜ)...  	
+echo è®¾ç½®å¤‡ä»½æ–‡ä»¶å(ä»¥æ˜ŸæœŸå‡ å‘½åï¼Œå³å¤‡ä»½æ–‡ä»¶åªä¿å­˜æœ€è¿‘ä¸€å‘¨)...  	
 set "name=%date:~11,2%"  	 	
 set "name=%tbuf%\%name%"	
 set "time_begin=%time%"
 set "day_begin=%date%"	
 
 echo  ========================================================================== >>"D:\BAK\log.txt"
-echo ±¸·Ý¿ªÊ¼ÓÚ%date% %time%  >>"D:\BAK\log.txt"
+echo å¤‡ä»½å¼€å§‹äºŽ%date% %time%  >>"D:\BAK\log.txt"
 
-echo ±¾µØ±¸·Ý	 >>"D:\BAK\log.txt"
+echo æœ¬åœ°å¤‡ä»½	 >>"D:\BAK\log.txt"
 robocopy "%pbuf%"  "%mbuf%\MSSQL\Backup"    /mir /ns /nc /nfl /ndl /np /r:10 /w:10   /MT:128  /LOG+:"D:\BAK\log.txt"          
 robocopy "%pbuf1%"  "%mbuf%\WEAVER"   /mir /ns /nc /nfl /ndl /np /r:10 /w:10   /MT:128  /LOG+:"D:\BAK\log.txt"                         
 robocopy "%pbuf2%"  "%mbuf%\WWWROOT"   /mir /ns /nc /nfl /ndl /np /r:10 /w:10   /MT:128  /LOG+:"D:\BAK\log.txt"          
 
-echo VPNÔ¶³Ì·þÎñÆ÷       >>"D:\BAK\log.txt"
+echo VPNè¿œç¨‹æœåŠ¡å™¨       >>"D:\BAK\log.txt"
 rasdial PT /d 		>>"D:\BAK\log.txt"			 
-rasdial PT  Ñîè« yanghuang3	>>"D:\BAK\log.txt"			 
+rasdial PT  æ¨ç’œ yanghuang	>>"D:\BAK\log.txt"			 
 
-echo ÍøÂçÁ¬½Ó±¸·Ý·þÎñÆ÷   	>>"D:\BAK\log.txt"
+echo ç½‘ç»œè¿žæŽ¥å¤‡ä»½æœåŠ¡å™¨   	>>"D:\BAK\log.txt"
 net use  "%tbuf%"  "password" /user:"BAK"		>>"D:\BAK\log.txt"	 
 
-echo Ô¶³Ì±¸·Ý		 >>"D:\BAK\log.txt"
+echo è¿œç¨‹å¤‡ä»½		 >>"D:\BAK\log.txt"
 robocopy  "%mbuf%"  "%name%"  /mir /ns /nc /nfl /ndl /np /r:10 /w:10  /MT:128  /LOG+:"D:\BAK\log.txt"          
 
-echo ¶Ï¿ªÍøÂçÁ¬½Ó		 >>"D:\BAK\log.txt"
+echo æ–­å¼€ç½‘ç»œè¿žæŽ¥		 >>"D:\BAK\log.txt"
 net use * /d /y		>>"D:\BAK\log.txt"			 
 rasdial PT /d		>>"D:\BAK\log.txt"			 
-echo ±¸·ÝÍê±Ï£¡	 	>>"D:\BAK\log.txt"
-echo ±¸·Ý½áÊøÓÚ%date% %time%  >>"D:\BAK\log.txt"
+echo å¤‡ä»½å®Œæ¯•ï¼	 	>>"D:\BAK\log.txt"
+echo å¤‡ä»½ç»“æŸäºŽ%date% %time%  >>"D:\BAK\log.txt"
 echo  ========================================================================== >>"D:\BAK\log.txt"
-echo ¼ÆËãÓÃÊ±
+echo è®¡ç®—ç”¨æ—¶
 echo off
 set "day_end=%date%"
 set /a "d1=%day_end:~8,2%"
@@ -56,4 +56,4 @@ set /a "hh=%t%/3600"
 set /a "mm=(%t%-%hh%*3600)/60"
 set /a "ss=%t%%%60"
 
-echo ¹²ÓÃÊ± %dd% Ìì %hh% Ð¡Ê± %mm% ·ÖÖÓ %ss% Ãë  >>"D:\BAK\log.txt"
+echo å…±ç”¨æ—¶ %dd% å¤© %hh% å°æ—¶ %mm% åˆ†é’Ÿ %ss% ç§’  >>"D:\BAK\log.txt"
